@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>NLP Chatbot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
+<style>
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 100%;
+  background: #4900ff;
+  background: linear-gradient(90deg,#4900ff 0%, #00caff 80%); 
+  background: -webkit-linear-gradient(90deg,#4900ff 0%, #00caff 80%);
+  background: -moz-linear-gradient(90deg,#4900ff 0%, #00caff 80%);
+  line-height: 1.5;
+  color: #000;
+}
+@media (min-width: 32rem) {
+  body {
+    font-size: 102.5%;
+  }
+}
+@media (min-width: 54rem) {
+  body {
+    font-size: 105%;
+  }
+}
+@media (min-width: 65rem) {
+  body {
+    font-size: 107.5%;
+  }
+}
+@media (min-width: 75em) {
+  body {
+    font-size: 110%;
+  }
+}
+@media (min-width: 91rem) {
+  body {
+    font-size: 115%;
+  }
+}
+@media (min-width: 115rem) {
+  body {
+    font-size: 120%;
+  }
+}
+@media (min-width: 130rem) {
+  body {
+    font-size: 125%;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+figure {
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.emoji {
+    width: 250px;
+    height: 250px;
+}
+
+.js-overflow {
+  overflow: hidden;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.bg-black {
+  background-color: #000;
+}
+
+.absolute-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}   
+    .chatbot-margin{
+       
+        margin-top: 15vh;
+        margin-bottom: 15vh;
+        margin-right: 5vh;
+        margin-left: 5vh;
+        display: block;
+        background-color: white;
+        border-radius: 20px;
+        padding: 1em;
+        width: auto;
+        box-shadow: 0px 0px 10px -4px grey;
+        text-align: center;
+    }
+    #chatbot_name{
+        width: 70%;
+        padding: 1em;
+        border-radius: 5px;
+        text-align: center;
+        border: 1px solid grey;
+    }
+
+    
+.send_button {
+  font-size:15px;
+  font-family:Arial;
+  width:140px;
+  height:40px;
+  border-width:1px;
+  color:#fff;
+  border-color:#1f2f47;
+  border-top-left-radius:17px;
+  border-top-right-radius:17px;
+  border-bottom-left-radius:17px;
+  border-bottom-right-radius:17px;
+  box-shadow:inset 0px 0px 15px 3px #23395e;
+  text-shadow:inset 0px 1px 0px #263666;
+  background:linear-gradient(#2e466e, #415989);
+}
+
+.send_button:hover {
+  background: linear-gradient(#415989, #2e466e);
+}
+        @media screen and (max-width:600px) {
+        .chatbot-margin{
+            margin-top: 12vh;
+            margin-bottom: 12vh;
+        }
+}
+</style>
+</head>
+<body>
+    <div class="chatbot-margin">
+        <h2><u>Chatbot</u></h2>
+        <h5>Hit enter or click send to start a conversation with the Chatbot</h5>
+        <form action="{{ url_for('main') }}" method="POST">
+            <input type="text" id="query" name="query" placeholder="Enter your query" required />
+            <input type="submit" class="send_button" value="Send"/>
+        </form>
+        <table class="chatbot_table" align="center">
+            <tr>
+                <th>Response</th>
+            </tr>
+            <tbody class="table_body">
+                <tr>
+                    <td id="name" name="name" >{{ resp }}</td>
+                </tr>
+                {% if positive  %}
+                <tr>
+                       <td id="name" name="name" > <img class="emoji" src="{{ url_for('static', filename='Happy.png') }}" /></td>
+                </tr>
+                {% elif negative  %}
+                <tr>
+                       <td id="name" name="name" > <img class="emoji" src="{{ url_for('static', filename='Sad.png') }}" /></td>
+                </tr>
+                 {% else  %}
+                <tr>
+                       <td id="name" name="name" > <img class="emoji" src="{{ url_for('static', filename='face-plain.png') }}" /></td>
+                </tr>
+                {% endif  %}
+            </tbody>
+        </table>
+
+
+        <!-- <p style="color: #919191; padding: 1em;">The model uses <b>Content Based Recommendations</b> to find similar chatbot. Intuitive idea behind is <i>"If a person likes a particular item, he/she will also like an item that is similar to it."</p> -->
+        <br>
+  </div>
+  <script src='https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js'></script>
+
+</body>
+</html>

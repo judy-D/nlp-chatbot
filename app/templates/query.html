@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>NLP Chatbot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<style>
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 100%;
+    background-color: #ffffff;
+  line-height: 1.5;
+  color: #000;
+}
+@media (min-width: 32rem) {
+  body {
+    font-size: 102.5%;
+  }
+}
+@media (min-width: 54rem) {
+  body {
+    font-size: 105%;
+  }
+}
+@media (min-width: 65rem) {
+  body {
+    font-size: 107.5%;
+  }
+}
+@media (min-width: 75em) {
+  body {
+    font-size: 110%;
+  }
+}
+@media (min-width: 91rem) {
+  body {
+    font-size: 115%;
+  }
+}
+@media (min-width: 115rem) {
+  body {
+    font-size: 120%;
+  }
+}
+@media (min-width: 130rem) {
+  body {
+    font-size: 125%;
+    }
+  }
+  .myButton {
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	background-color:#599bb3;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:13px 32px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	background-color:#408c99;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;  
+  }
+  .js-overflow {
+    overflow: hidden;
+  }
+  .bg-white {
+    background-color: #fff;
+  }
+  .bg-black {
+    background-color: #000;
+  }  
+    .smartwatch{
+        height: 70vh;
+        margin-top: 15vh;
+        margin-bottom: 15vh;
+        margin-right: 5vh;
+        margin-left: 5vh;
+        display: block;
+        background-color: white;
+        border-radius: 20px;
+        padding: 1em;
+        width: auto;
+        box-shadow: 0px -10px 20px -5px #E2E2E2;
+        text-align: center;
+    }
+
+    @media screen and (max-width:600px) {
+        .smartwatch{
+            margin-top: 12vh;
+            margin-bottom: 12vh;
+        }
+      }
+    table,tr,td,th{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    td{
+      padding: 10px;  
+    }
+
+</style>
+</head>
+<body>
+    <div class="smartwatch">
+        <!-- <h2><u>Recommendations:</u></h2> -->
+        <p>Showing results for: {{ title }}</p>
+        <table class="smartwatch_table" align="center">
+            <tr>
+                <th>Query</th>
+            </tr>
+            <tbody class="table_body">
+                <tr>
+                    <td id="name" name="name" >{{ resp }}</td>
+                </tr>
+      
+            </tbody>
+        </table>
+        <br>
+  </div>
+    
+</body>
+</html>
