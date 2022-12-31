@@ -12,7 +12,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 nltk.download('omw-1.4')
 nltk.download('vader_lexicon')
-
+nltk.download('wordnet')
 
 # app = Flask(__name__)
 app = Flask(__name__, template_folder='templates')
